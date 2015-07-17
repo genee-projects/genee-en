@@ -1,0 +1,6 @@
+---
+default:
+  dsn: mysql:dbname=genee;host=$(MYSQL_ADDR);port=$(MYSQL_PORT)
+  username: genee
+  password: 83719730
+...

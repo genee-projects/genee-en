@@ -1,0 +1,71 @@
+[{
+	"name": "web",
+	"title": "Web研发工程师 (PHP/Java/JS)",
+	"date": "2015-01-29 00:00:00",
+	"city": "天津, 北京",
+	"type": 0,
+	"weight": 1
+}, {
+	"name": "sys",
+	"title": "系统开发工程师 (Node.js/Python/C++/Java)",
+	"date": "2015-01-29 00:00:00",
+	"city": "天津",
+	"type": 0,
+	"weight": 2
+}, {
+	"name": "support",
+	"title": "技术支持",
+	"date": "2014-02-24 00:00:00",
+	"city": "天津",
+	"type": 0,
+	"weight": 6
+}, {
+	"name": "support2",
+	"title": "现场工程师",
+	"date": "2014-02-24 00:00:00",
+	"city": "天津, 武汉",
+	"type": 0,
+	"weight": 7
+}, {
+	"name": "sales",
+	"title": "销售经理",
+	"date": "2014-02-24 00:00:00",
+	"city": "郑州,西安",
+	"type": 0,
+	"weight": 8
+}, {
+	"name": "php",
+	"title": "PHP研发工程师",
+	"date": "2014-02-24 00:00:00",
+	"city": "天津",
+	"type": 1,
+	"weight": 0
+}, {
+	"name": "mcu",
+	"title": "嵌入式研发工程师",
+	"date": "2014-02-24 00:00:00",
+	"city": "天津",
+	"type": 1,
+	"weight": 0
+}, {
+	"name": "admintern",
+	"title": "管理培训生",
+	"date": "2014-02-24 00:00:00",
+	"city": "天津",
+	"type": 1,
+	"weight": 0
+}, {
+	"name": "po",
+	"title": "科研互联网产品负责人",
+	"date": "2015-01-01 00:00:00",
+	"city": "天津",
+	"type": 0,
+    "weight": 3
+}, {
+	"name":"sh",
+	"title":"售后主管",
+	"date":"2014-11-04 00:00:00",
+	"city":"天津",
+	"type":0,
+	"weight":9
+}]

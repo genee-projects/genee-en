@@ -1,0 +1,12 @@
+<div class="logo"></div>
+<div class="going-down">
+    <i class="fa fa-chevron-down fa-4x"></i>
+</div>
+<script>
+require(['main'], function($) {
+    $('#page-home .going-down').on('click', function(){
+        var $menu = $('#header .top-menu .menu');
+        $menu.find('a.menu-item[href="#about"]').click();
+    }); 
+});
+</script>

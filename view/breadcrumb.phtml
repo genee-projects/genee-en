@@ -1,0 +1,15 @@
+<?php if (is_array($breadcrumb)) { 
+
+    $cb = array_pop($breadcrumb);
+    if (!$cb) return;
+    
+    ?>
+<div class="container">
+    <ol class="breadcrumb">
+        <?php foreach ($breadcrumb as $b) { ?>
+            <li><a href="<?= $b['href']?>"><?= H($b['title']) ?></a></li>
+        <?php } ?>
+        <li class="active"><?= H($cb['title'])?></li>
+    </ol>
+</div>
+<?php } ?>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title><?= T('Genee Group')?></title>
+    <base href="<?= URL('/') ?>">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/genee.css" rel="stylesheet">    
+    <script data-main="assets/js/main.js" src="assets/js/require.js"></script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/icon/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/icon/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/icon/apple-touch-icon-72.png">
+    <link rel="shortcut icon" href="assets/icon/favicon.png">
+</head>
+<body class="<?= $layout_class ?>">
+    <div id="header">
+        <div class="poor-support-alert">
+            <?= H(T('您的浏览器版本过低，无法保障最佳浏览效果，建议您升级或者使用其他浏览器的最新版本。'))?>
+        </div>
+        <?= $header ?>
+    </div>
+    <div id="contact-dropdown">
+        <?= $contact_dropdown ?>
+    </div>
+    <div id="body">
+        <?= $body ?>
+    </div>
+    <div id="footer">
+        <?= $footer ?>
+    </div>
+    <script>
+    require(['main'], function($){
+        if (!$.support.cssFloat) {
+            $('body').addClass('poor-support');
+        }
+    });
+    </script>
+</body>
+</html>

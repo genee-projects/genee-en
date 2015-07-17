@@ -1,0 +1,142 @@
+<?php
+$check_selected = function($a, $b) {
+    return $a == $b ? 'selected' : '';
+}
+?>
+<form id="product-consult-form" method="POST" action="ajax/products/consult">
+    <div class="row">
+        <div class="col-xs-6">
+            <a href="ajax/products/view/<?= H($form['product'])?>" class="btn btn-default btn-sm btn-product-ajax"><i class="fa fa-fw fa-reply"></i> 返回</a>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label class="control-label">您想咨询的产品</label>
+                <select name="product" class="form-control">
+                    <option <?= $check_selected($form['product'], 'lims') ?> value="lims">LabScout&trade; LIMS 实验室信息管理系统</option>
+                    <option <?= $check_selected($form['product'], 'lims-cf') ?> value="lims-cf">LabScout&trade; LIMS-CF 公共仪器共享管理系统</option>
+                    <option <?= $check_selected($form['product'], 'billing') ?> value="billing">LabScout&trade; Billing 实验室快捷支付系统</option>
+                    <option <?= $check_selected($form['product'], 'mall') ?> value="mall">LabScout&trade; Mall 科研物品电子商城系统</option>
+                    <option <?= $check_selected($form['product'], 'tender') ?> value="tender">LabScout&trade; Tender 采购竞价系统</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="product-consult-card">
+        <div class="row">
+            <div class="col-xs-6">
+                 <div class="row">
+                     <div class="col-xs-6">
+                         <div class="form-group<?= isset($form['_errors']['name']) ? ' has-error':'' ?>">
+                             <?php if (isset($form['_errors']['name'])) {?>
+                             <span class="label label-danger pull-right">
+                                 <?= H($form['_errors']['name']) ?>
+                             </span>
+                             <?php } ?>
+                             <label class="control-label">姓名</label>
+                             <input name="name" type="text" class="form-control" value="<?= H($form['name'])?>">
+                         </div>
+                     </div>
+                     <div class="col-xs-6">
+                         <div class="form-group<?= isset($form['_errors']['institute']) ? ' has-error':'' ?>">
+                             <?php if (isset($form['_errors']['institute'])) {?>
+                             <span class="label label-danger pull-right">
+                                 <?= H($form['_errors']['institute']) ?>
+                             </span>
+                             <?php } ?>
+                             <label class="control-label">工作单位</label>
+                             <input name="institute" type="text" class="form-control" value="<?= H($form['institute'])?>">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-xs-6">
+                         <div class="form-group<?= isset($form['_errors']['email']) ? ' has-error':'' ?>">
+                             <?php if (isset($form['_errors']['email'])) {?>
+                             <span class="label label-danger pull-right">
+                                 <?= H($form['_errors']['email']) ?>
+                             </span>
+                             <?php } ?>
+                             <label class="control-label">Email</label>
+                             <input name="email" type="text" class="form-control" value="<?= H($form['email'])?>">
+                         </div>
+                     </div>
+                     <div class="col-xs-6">
+                         <div class="form-group<?= isset($form['_errors']['phone']) ? ' has-error':'' ?>">
+                             <?php if (isset($form['_errors']['phone'])) {?>
+                             <span class="label label-danger pull-right">
+                                 <?= H($form['_errors']['phone']) ?>
+                             </span>
+                             <?php } ?>
+                             <label class="control-label">联系电话</label>
+                             <input name="phone" type="text" class="form-control" value="<?= H($form['phone'])?>">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col-xs-12">
+                         <div class="form-group<?= isset($form['_errors']['lab']) ? ' has-error':'' ?>">
+                             <?php if (isset($form['_errors']['lab'])) {?>
+                             <span class="label label-danger pull-right">
+                                 <?= H($form['_errors']['lab']) ?>
+                             </span>
+                             <?php } ?>
+                             <label class="control-label">实验室名称</label>
+                             <input name="lab" type="text" class="form-control" value="<?= H($form['lab'])?>">
+                         </div>
+                     </div>
+                 </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label">您咨询的问题类型</label>
+                            <select name="type" class="form-control">
+                                <option <?= $check_selected($form['type'], 'feature') ?> value="feature">产品功能</option>
+                                <option <?= $check_selected($form['type'], 'application') ?> value="application">产品应用</option>
+                                <option <?= $check_selected($form['type'], 'tech') ?> value="tech">技术咨询</option>
+                                <option <?= $check_selected($form['type'], 'quote') ?> value="quote">产品价格</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group<?= isset($form['_errors']['description']) ? ' has-error':'' ?>">
+                            <label class="control-label">问题描述</label>
+                             <textarea name="description" class="form-control" rows="5"><?= H($form['description']) ?></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-lg btn-block" name="_submit"><i class="fa fa-share fa-fw"></i> 提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script data-ajax="true">
+require(['main'], function($){
+	$('#product-consult-form').on('submit', function(e) {
+        e.preventDefault();
+
+		var $form = $(this);
+        var $loading = $('<div class="text-center text-muted" style="padding-top:100px"><i class="fa fa-4x fa-spinner fa-spin"></i></div>');
+        $form.hide().after($loading);
+
+		$.ajax({
+			type: $form.attr('method') || "POST",
+			url: $form.attr('action'),
+			data: $form.serialize(),
+			success: function(html) {
+                $form.replaceWith(html).show();
+                $loading.detach();
+			}
+		});
+
+		return false;
+	});
+});
+</script>

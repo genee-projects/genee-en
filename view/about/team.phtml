@@ -1,0 +1,103 @@
+<div class="team-content">
+    <?php
+    $members = [
+        'qian' => [
+            'href' => '#qian',
+            'title' => '王倩',
+        ],
+        'jia' => [
+            'href' => '#jia',
+            'title' => '黄嘉',
+        ],
+        'pc' => [
+            'href' => '#qiu',
+            'title' => '陈志刚',
+        ],
+    ];
+    ?>
+    <div class="members-canvas">
+        <div class="members">
+            <div class="member" data-member="qian">
+                <div class="container">
+                    <div class="row" style="margin-bottom:10px">
+                        <div class="col-xs-5 text-right" style="padding-right:0">
+                            <img class="portrait" src="assets/img/about/team/qian.png" data-retina-src="assets/img/about/team/qian@2x.png">
+                        </div>
+                        <div class="col-xs-6" style="padding-left:0">
+                            <div class="text-center" style="float:left">
+                                <h4 class="name">王倩</h4>
+                                <h5 class="title">CEO / 联合创始人</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="text-justify text-indent">美国纽约大学博士。长期活跃于生命科学领域和美国留学生社区。2007年任美国CHI科技公司副总裁，负责公司产品开发和市场销售。先后担任多个城市和经济技术开发区驻海外工作站负责人，并被国内多家生物医药公司和政府部门聘为高级顾问，成功搭建了国内公司与美国各类生物医药和医疗器械公司的战略合作平台。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="member" data-member="jia">
+                <div class="container">
+                    <div class="row" style="margin-bottom:10px">
+                        <div class="col-xs-5 text-right" style="padding-right:0">
+                            <img class="portrait" src="assets/img/about/team/jia.png" data-retina-src="assets/img/about/team/jia@2x.png">
+                        </div>
+                        <div class="col-xs-6" style="padding-left:0">
+                            <div class="text-center" style="float:left">
+                                <h4 class="name">黄嘉</h4>
+                                <h5 class="title">CTO / 联合创始人</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="text-justify text-indent">复旦大学博士。具有多年软硬件研发和网络开发经验，长期致力于推动生物医学领域的信息网络化发展。曾主持过多个国内外生物医药相关企业及科研机构的在线软件平台的搭建，并参与过凝胶成像/医疗仪器信号采集分析等多种生物科研软硬接口软件项目的开发工作。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="member" data-member="qiu">
+                <div class="container">
+                    <div class="row" style="margin-bottom:10px">
+                        <div class="col-xs-5 text-right" style="padding-right:0">
+                            <img class="portrait" src="assets/img/about/team/qiu.png" data-retina-src="assets/img/about/team/qiu@2x.png">
+                        </div>
+                        <div class="col-xs-6" style="padding-left:0">
+                            <div class="text-center" style="float:left">
+                                <h4 class="name">陈志刚</h4>
+                                <h5 class="title">COO</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="text-justify text-indent">从事互联网及生物医药领域信息化管理工作十余年，积累了丰富的互联网产品研发、项目规划管理、产品运营和电子商务营销推广等方面经验。是国内较早的生物门户网站“生物通”的创办人之一。在北京东胜创新生物科技有限公司工作期间，组建电子商务部并担任部门总经理，组建全国分销渠道并从事销售管理工作，电商销售业绩优秀。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="member-navbar clearfix">
+        <?php foreach($members as $key => $item) { ?>
+            <div class="member-navbar-item">
+                <a href="<?= H($item['href']) ?>">
+                    <?= H($item['title']) ?>
+                </a>
+            </div>
+        <?php } ?>        
+    </div>
+    <script>
+    require(['main'], function($){
+        $('#page-about .about-card-team .member-navbar-item a')
+        .on('click', function(){
+            var $a = $(this);
+            var $item = $a.parents('.member-navbar-item');
+            $item.addClass('hover').siblings().removeClass('hover');
+    
+            var href = $a.attr('href').substr(1);
+            var $member = $('#page-about .about-card-team .member[data-member="'+href+'"]');
+            $('#page-about .about-card-team .members').animate({left:-$member.position().left});
+    
+            return false;
+        })
+        .eq(0).click();
+    })
+
+    </script>
+</div>

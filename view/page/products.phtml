@@ -1,0 +1,161 @@
+<div class="page-content">
+    <h2 class="page-title">产品与服务</h2>
+
+    <div class="products clearfix" >
+        <div class="product" data-name="lims">
+            <div class="product-icon">
+                <img src="assets/img/products/lims.png" data-retina-src="assets/img/products/lims@2x.png">
+            </div>
+            <div class="product-content">
+                <p class="text-justify" style="margin-top:.5em"><strong>LIMS</strong> 以实验室为中心，结合应用软件与互联网技术，根据科研人员的工作需要，将多个影响实验室运作的必要因素有机地结合起来，从而大幅度提高实验室管理效率和自动化水平，为您的实验室实现简易便捷的无纸化管理环境。</p>
+            </div>
+        </div>
+        <div class="product" data-name="lims-cf">
+            <div class="product-icon">
+                <img src="assets/img/products/cf.png" data-retina-src="assets/img/products/cf@2x.png">
+            </div>
+            <div class="product-content">
+                <p class="text-justify" style="margin-top:.5em"> <strong>LIMS-CF</strong> 是一款专门面向科研实验室公共仪器的智能化管理系统。本系统将公共仪器平台的各项必要工作流程整合在一起，显著提高仪器设备的管理和使用效率。</p>
+            </div>
+        </div>
+        <div class="product" data-name="billing">
+            <div class="product-icon">
+                <img src="assets/img/products/billing.png" data-retina-src="assets/img/products/billing@2x.png">
+            </div>
+            <div class="product-content">
+                <p class="text-justify" style="margin-top:.5em"><strong>Billing</strong> 是基理科技设计的独立支付结算平台，能为拥有多个需要进行充值支付系统的用户提供更灵活的机构内充值分配结算的解决方案。</p>
+            </div>
+        </div>
+        <div class="product" data-name="mall">
+            <div class="product-icon">
+                <img src="assets/img/products/mall.png" data-retina-src="assets/img/products/mall@2x.png">
+            </div>
+            <div class="product-content">
+                <p class="text-justify" style="margin-top:.5em"> <strong>Mall</strong> 是基理科技自主研发的在线科研采购管理系统，系统全面整合产品查找、选购、付款、收货、报销结算等各个环节，通过线上平台为科研工作者提供丰富的试剂、耗材等实验室用品信息，用户随时能够以透明实惠的价格买到最合适的产品，有效节省选购时间，缩短供货周期。</p>
+            </div>
+        </div>
+        <div class="product" data-name="tender">
+            <div class="product-icon">
+                <img src="assets/img/products/tender.png" data-retina-src="assets/img/products/tender@2x.png">
+            </div>
+            <div class="product-content">
+                <p class="text-justify" style="margin-top:.5em"><strong>Tender</strong> 是基理科技结合高校采购流程，通过优化再造所研发的一款电子采购平台。通过信息发布，商家报价，网上定标及结果公布等流程实现全透明监管，有效防止物品采购过程中的暗箱操作。</p>
+            </div>
+        </div>
+        <div class="product-expanded"></div>
+    </div>
+
+    <div class="product-indicator-track">
+        <div class="product-indicator"></div>
+    </div>
+
+    <div class="product-tabs clearfix">
+        <div class="product-tab">
+            <h4>LIMS</h4>
+            <h5>实验室信息管理系统</h5>
+        </div>
+        <div class="product-divider"></div>
+        <div class="product-tab">
+            <h4>LIMS-CF</h4>
+            <h5>仪器共享管理系统</h5>
+        </div>
+        <div class="product-divider"></div>
+        <div class="product-tab">
+            <h4>Billing</h4>
+            <h5>实验室快捷支付系统</h5>
+        </div>
+        <div class="product-divider"></div>
+        <div class="product-tab">
+            <h4>Mall</h4>
+            <h5>科研采购管理系统</h5>
+        </div>
+        <div class="product-divider"></div>
+        <div class="product-tab">
+            <h4>Tender</h4>
+            <h5>采购竞价系统</h5>
+        </div>
+    </div>
+
+</div>
+<script data-ajax="true">
+require(['main'], function($) {
+    
+    var $indicator = $('#page-products .product-indicator');    
+    var $products = $('#page-products .products');
+    var $expanded_product = $products.children('.product-expanded');
+    
+    $products.children('.product').hover(function(){
+        if ($expanded_product.is(':visible')) return;
+
+        var $product = $(this);
+        $indicator.css({left: $product.position().left + $product.width() / 2});
+        $product.addClass('hover').siblings().removeClass('hover');
+    })
+    .on('click.expand-product', function() {
+        var $product = $(this);
+        _expand_product($product);
+    });
+    
+    $products.children('.product').eq(0).trigger('mouseover');
+    
+    var $loading = $('<div class="text-center text-muted" style="padding-top:100px"><i class="fa fa-4x fa-spinner fa-spin"></i></div>');
+
+    function _expand_product($product) {
+        
+        var $collapsed_product = $expanded_product.data('product');
+        if ($collapsed_product) {
+            
+            if ($collapsed_product[0] == $product[0]) return;
+            
+            // 重新显示indicator
+            $indicator.css({left: $collapsed_product.position().left + $collapsed_product.width() / 2});
+            $collapsed_product.addClass('hover').siblings().removeClass('hover');
+        
+            $expanded_product.data('product', null);
+            $expanded_product.empty().fadeOut();
+        }
+
+        // 重新显示indicator
+        $indicator.css({left: $product.position().left + $product.width() / 2});
+        $product.addClass('hover').siblings().removeClass('hover');
+
+        $expanded_product.append($loading);
+        $expanded_product.data('product', $product);
+        
+        $expanded_product.fadeIn(function(){
+            $expanded_product.load('ajax/products/view/' + $product.data('name'));
+        });
+    }
+    
+    $('#page-products .product-tab')
+    .hover(function() {
+        if ($expanded_product.is(':visible')) return;
+        
+        var index = $('#page-products .product-tab').index(this);
+        var $product = $products.children('.product').eq(index);
+        $indicator.css({left: $product.position().left + $product.width() / 2});
+        $product.addClass('hover').siblings().removeClass('hover');
+    })
+    .on('click.expand-product', function(){
+        var index = $('#page-products .product-tab').index(this);
+        var $product = $products.children('.product').eq(index);
+        _expand_product($product);
+    });
+    
+    $('#page-products').on('click', 'a.btn-collapse-product', function(){
+        var $expanded_product = $(this).parents('.product-expanded');
+        $expanded_product.data('product', null);
+        $expanded_product.empty().fadeOut();
+        return false;
+    });
+    
+    $('#page-products').on('click', 'a.btn-product-ajax', function(e){
+        var $a = $(this);
+        $expanded_product.empty().append($loading).fadeIn(function(){
+            $expanded_product.load($a.attr('href'));
+        });
+        return false;
+    });
+
+});
+</script>

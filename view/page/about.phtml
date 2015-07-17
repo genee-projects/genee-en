@@ -1,0 +1,75 @@
+<div class="page-content">
+    <h2 class="page-title">About Us</h2>
+    <div class="about-cards">
+        <div class="about-card about-card-honors">
+            <div class="about-card-handle"></div>
+            <div class="about-card-content" data-href="ajax/about/honors"></div>
+        </div>
+        <div class="about-card about-card-culture">
+            <div class="about-card-handle"></div>
+            <div class="about-card-content" data-href="ajax/about/culture"></div>
+        </div>
+        <div class="about-card about-card-team">
+            <div class="about-card-handle"></div>
+            <div class="about-card-content" data-href="ajax/about/team"></div>
+        </div>
+        <div class="about-card about-card-us">
+            <div class="about-card-handle"></div>
+            <div class="about-card-content" data-href="ajax/about/us"></div>
+        </div>
+    </div>
+
+    <script>
+    require(['main'], function($) {
+    
+        var $cards = $('#page-about .about-cards');
+        var $loading = $('<div class="text-center text-muted" style="padding-top:100px"><i class="fa fa-4x fa-spinner fa-spin"></i></div>');
+
+        $cards.find('.about-card-handle')
+        .on('click', function() {
+
+            var $handle = $(this);
+            var $card = $handle.parents('.about-card'); 
+            
+            if ($card.hasClass('expanded')) {
+                var $card = $cards.children('.about-card.expanded').removeClass('expanded');
+                $card.find('.about-card-content').empty(); 
+                $card.siblings().removeClass('collapsed');
+            }
+            else {
+                $card.siblings().removeClass('expanded').addClass('collapsed');
+                $card.removeClass('collapsed').addClass('expanded').find('.about-card-content').empty();
+
+                var $content = $card.find('.about-card-content');
+                $content.empty().append($loading);
+                setTimeout(function(){
+                    $content.load($content.data('href'));
+                }, 100);
+                
+            }
+
+        });
+
+    });
+    </script>    
+    
+    <div class="contact-card">
+        <div class="contact-tip">
+            <h3>Contact Us</h3>
+            <p>
+                If you want to know more about us, give us a call. 
+            </p>
+        </div>
+        <div class="contact-info">
+            <ul>
+                <li><strong>Tel</strong><span>400-MY-GENEE (400-694-3633)</span></li>
+                <li><strong>Email</strong><span>info@geneegroup.com</span></li>
+                <li><strong>Address</strong><span>New Nongke Building 4th Floor, 268 Baidi Rd, Nankai District, Tianjin, China</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="location-card">
+        <div class="location-card-building"></div>
+        <div class="location-card-map"></div>
+    </div>
+</div>

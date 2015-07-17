@@ -1,0 +1,79 @@
+<div class="header-content">
+    <div class="col-xs-3 text-right" style="padding-top:20px">
+	    <div class="logo"></div>
+    </div>
+    <div class="col-xs-7">
+        <div class="top-menu">
+            <div class="menu">
+    		    <?php foreach($menu as $item) { ?>
+    		    <a class="menu-item" href="<?= H($item['href']) ?>">
+    		            <?= H($item['title']) ?>
+		        </a>
+                <?php } ?>
+            </div>
+            <div class="menu-progress hide">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <script>
+        require(['main'], function($) {
+            
+            var $menu = $('#header .top-menu .menu');
+            var $progress = $('#header .top-menu .menu-progress');
+            var $items = $menu.children('.menu-item');
+            var length = $items.length;
+        
+            $progress.width($items.last().position().left + $items.last().width()).removeClass('hide');
+        
+            $items
+            .on('click', function() {
+                var $item = $(this);
+
+                var $old_item = $menu.children('.active');
+                if (!$old_item.length) $old_item = $item;
+            
+                var href = $item.attr('href').substr(1);
+            
+                $old_item.removeClass('active');
+                $item.addClass('active');
+
+                _disableScrollMonitor = true;
+                $progress.children('.bar').stop(true, true).animate({width:$item.position().left + $item.width()});
+                $('body,html').stop(true, true).animate({'scrollTop': $('#page-'+href).offset().top - $('#body').offset().top}, function() {
+                    _disableScrollMonitor = false;
+                    location.hash = '#' + href;
+                });
+            
+                return false; 
+            });
+        
+            var _disableScrollMonitor = false;
+            $(window).on('scroll', function() {
+                if (_disableScrollMonitor) return;
+                var scrollTop = ($('body').scrollTop() || $('html').scrollTop()) + $(window).height() / 2;
+                $($('#pages > .page').get().reverse()).each(function(){
+                    var $page = $(this);
+                    if ($page.offset().top < scrollTop) {
+                        if ($menu.children('a.menu-item.active').attr('href') != '#' + $page.data('anchor')) {
+                            var $item = $items.filter('[href="#'+$page.data('anchor')+'"]');
+                            $item.addClass('active').siblings().removeClass('active');
+                            $progress.children('.bar').stop(true, true).animate({width:$item.position().left + $item.width()});
+                            location.hash = '#' + $page.data('anchor');
+                        }
+                        return false;
+                    } 
+                
+                });
+            });
+        
+            if (!location.hash) location.hash = '#home';
+            $menu.find('a.menu-item[href="'+location.hash+'"]').click();
+            
+        });
+        
+        </script>
+    </div>
+    <div class="col-xs-2 text-right" style="line-height: 72px">
+        <a href="http://www.genee.cn">中文 &raquo;</a>
+    </div>
+</div>
