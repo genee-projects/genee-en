@@ -36,37 +36,10 @@
         <div class="product-expanded"></div>
     </div>
 
-    <div class="product-indicator-track">
-        <div class="product-indicator"></div>
-    </div>
-
-    <div class="product-tabs clearfix">
-        <div class="product-tab">
-            <h4>LIMS</h4>
-            <h5>实验室信息管理系统</h5>
-        </div>
-        <div class="product-divider"></div>
-        <div class="product-tab">
-            <h4>LIMS-CF</h4>
-            <h5>仪器共享管理系统</h5>
-        </div>
-        <div class="product-divider"></div>
-        <div class="product-tab">
-            <h4>LabMai</h4>
-            <h5>科研采购管理系统</h5>
-        </div>
-        <div class="product-divider"></div>
-        <div class="product-tab">
-            <h4>G-IoT</h4>
-            <h5>物联智慧科研</h5>
-        </div>
-    </div>
-
 </div>
 <script data-ajax="true">
 require(['main'], function($) {
     
-    var $indicator = $('#page-products .product-indicator');    
     var $products = $('#page-products .products');
     var $expanded_product = $products.children('.product-expanded');
     
@@ -74,7 +47,6 @@ require(['main'], function($) {
         if ($expanded_product.is(':visible')) return;
 
         var $product = $(this);
-        $indicator.css({left: $product.position().left + $product.width() / 2});
         $product.addClass('hover').siblings().removeClass('hover');
     })
     .on('click.expand-product', function() {
@@ -93,16 +65,12 @@ require(['main'], function($) {
             
             if ($collapsed_product[0] == $product[0]) return;
             
-            // 重新显示indicator
-            $indicator.css({left: $collapsed_product.position().left + $collapsed_product.width() / 2});
             $collapsed_product.addClass('hover').siblings().removeClass('hover');
         
             $expanded_product.data('product', null);
             $expanded_product.empty().fadeOut();
         }
 
-        // 重新显示indicator
-        $indicator.css({left: $product.position().left + $product.width() / 2});
         $product.addClass('hover').siblings().removeClass('hover');
 
         $expanded_product.append($loading);
@@ -112,21 +80,6 @@ require(['main'], function($) {
             $expanded_product.load('ajax/products/view/' + $product.data('name'));
         });
     }
-    
-    $('#page-products .product-tab')
-    .hover(function() {
-        if ($expanded_product.is(':visible')) return;
-        
-        var index = $('#page-products .product-tab').index(this);
-        var $product = $products.children('.product').eq(index);
-        $indicator.css({left: $product.position().left + $product.width() / 2});
-        $product.addClass('hover').siblings().removeClass('hover');
-    })
-    .on('click.expand-product', function(){
-        var index = $('#page-products .product-tab').index(this);
-        var $product = $products.children('.product').eq(index);
-        _expand_product($product);
-    });
     
     $('#page-products').on('click', 'a.btn-collapse-product', function(){
         var $expanded_product = $(this).parents('.product-expanded');

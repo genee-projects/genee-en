@@ -6,7 +6,7 @@ namespace Gini\Controller\CGI\AJAX {
         
         function actionView($name='') {
             
-            if (!in_array($name, ['lims', 'lims-cf', 'billing', 'tender', 'mall'])) return;
+            if (!in_array($name, ['lims', 'lims-cf', 'labmai', 'giot', '17kong'])) return;
             
             return \Gini\IoC::construct('\Gini\CGI\Response\HTML', V('products/'.$name.'/info'));
             
