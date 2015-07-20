@@ -2,156 +2,34 @@
 
     <div class="row">
         <div class="col-xs-3">
-            <a href="#" class="btn btn-default btn-sm btn-collapse-product"><i class="fa fa-fw fa-reply"></i> 返回</a>
+            <a href="#" class="btn btn-default btn-sm btn-collapse-product"><i class="fa fa-fw fa-reply"></i> Back</a>
         </div>
         <div class="col-xs-2 text-right">
             <img width="64" height="64" src="assets/img/products/lims.png" data-retina-src="assets/img/products/lims@2x.png">
         </div>
-        <div class="col-xs-3 product-title">
+        <div class="col-xs-4 product-title">
             <h4>LabScout&trade; LIMS</h4>
-            <h3>实验室信息管理系统</h3>
         </div>
-        <div class="col-xs-4 text-right">
-            <a href="ajax/products/consult?product=lims" class="btn btn-warning btn-lg btn-product-ajax"><i class="fa fa-question-circle"></i> 咨询</a>
+        <div class="col-xs-3 text-right">
+            <a href="ajax/products/consult?product=lims" class="btn btn-warning btn-lg btn-product-ajax"><i class="fa fa-question-circle"></i> Consult</a>
         </div>
     </div>
     
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#product-summary" data-toggle="tab"><?= H(T('概述'))?></a></li>
-        <li><a href="#product-feature" data-toggle="tab"><?= H(T('产品功能'))?></a></li>
-        <li><a href="#product-advantage" data-toggle="tab"><?= H(T('产品优势'))?></a></li>
+        <li class="active"><a href="#product-summary" data-toggle="tab"><?= H('Overview')?></a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="product-summary" style="padding:30px 40px 20px">
-            <p class="text-justify text-indent">LabScout LIMS (Laboratory Information Management System 实验室信息管理系统)是一款由天津市基理科技有限公司自主研发 的实验室在线管理软件。LabScout LIMS以实验室为中心，结合应用软件与互联网技术，将实验室流程、人员组成、仪器设备、 化学试剂、标准方法、文件资料、试验笔记、项目进度等多个影响实验室运作的必要因素有机地结合起来，从而大幅度提高实验 室的管理效率和自动化水平，为您的实验室实现简易便捷的无纸化管理环境。</p>
-            <p class="text-justify text-indent">LabScout LIMS 为中小型生物实验室量身定做，独特设计了实验室公共网站页面，并兼具功能全面、界面简洁友好、实时在线、 无需安装、兼容性强、安全性高、使用方便等多种优点。此外，LabScout LIMS采用SaaS“软件即服务”的模式，可以为您定制 最符合您实验室实际情况的功能模块。</p>
-            <p class="text-justify text-indent">到目前为止，Labscout LIMS已经与多所名校的教授签订服务合同，这些教授来自包括南开大学、新泽西理工大学、美国哈佛大 学在内的多所国内外重点院校，产品投入使用后得到一致的好评。</p>
-        </div>
-        <div class="tab-pane" id="product-feature" style="padding:30px 20px 20px">
-            <div style="overflow:hidden;width:850px;height:220px;position:relative;margin:0 auto">
-                <div id="product-feature-canvas" style="position:absolute;left:0;width:1700px">
-                    <div class="row">
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-home pull-left"></i>
-                                <h5 style="margin-top:0">实验室前台展示</h5>
-                                <p class="text-muted  text-justify"><small>用户可以根据基理科技提供的模板选择页面风格并根据需要自由编辑，修改页面内容。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-refresh pull-left"></i>
-                                <h5 style="margin-top:0">实验室信息更新</h5>
-                                <p class="text-muted text-justify"><small>所有成员将及时收到实验室成员和管理过程中的更新信息，系统还会每天将实验室更新动态以邮件的形式发送至PI的邮箱。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-user pull-left"></i>
-                                <h5 style="margin-top:0">成员管理</h5>
-                                <p class="text-muted  text-justify"><small>编辑和管理实验室成员基本信息，成员状态、建立管理角色，灵活划分管理权限，实现实验室公共页面人员信息及时更新。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-cog pull-left"></i>
-                                <h5 style="margin-top:0">仪器管理</h5>
-                                <p class="text-muted  text-justify"><small>管理实验室仪器，可进行查询，预约和故障报告等操作，并可根据需要选择仪器控制终端，实时掌握仪器使用状态。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-list pull-left"></i>
-                                <h5 style="margin-top:0">订单管理</h5>
-                                <p class="text-muted  text-justify"><small>实现实验室订单自动化管理，与实验室试剂库存及经费自动关联，并可按类别生成报表。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-flask pull-left"></i>
-                                <h5 style="margin-top:0">存货管理</h5>
-                                <p class="text-muted  text-justify"><small>编辑管理数据和物品，包括试剂耗材、菌种、序列、引物等存放位置及当前状态等信息。</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-credit-card pull-left"></i>
-                                <h5 style="margin-top:0">经费管理</h5>
-                                <p class="text-muted  text-justify"><small>对课题经费进行分配和管理，随时了解实验室经费使用情况，为实验室经费的使用提供依据。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-tasks pull-left"></i>
-                                <h5 style="margin-top:0">项目管理</h5>
-                                <p class="text-muted  text-justify"><small>管理实验室课题项目，在项目中分配课题任务并指派负责人，任务完成情况在线实现反馈。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-calendar pull-left"></i>
-                                <h5 style="margin-top:0">日程安排</h5>
-                                <p class="text-muted  text-justify"><small>实验室日程安排自动化管理和更新，会议相关文件组内共享，同时可以管理个人工作时间，并对仪器的预约时间提供预警提示。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-sitemap pull-left"></i>
-                                <h5 style="margin-top:0">实验记录</h5>
-                                <p class="text-muted  text-justify"><small>实验记录电子化录入，电子印鉴避免数据伪造和剽窃，确保数据的完整行和保密性。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-trophy pull-left"></i>
-                                <h5 style="margin-top:0">成果管理</h5>
-                                <p class="text-muted  text-justify"><small>管理实验室成果、文献专利与成员自动匹配、归类，实现实验室成果实时更新与资源共享。</small></p>
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="form-group clearfix">
-                                <i class="text-primary fa fa-fw fa-3x fa-sun-o pull-left"></i>
-                                <h5 style="margin-top:0">环境监测</h5>
-                                <p class="text-muted  text-justify"><small>连续采集和记录温湿度等信息，设定报警阈值，异常情况时可发出多种形式警报，保证实验室和设备安全。</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <ul id="product-feature-pager" class="slide-pager" style="margin:0">
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                </ul>
-            </div>
-            <script>
-            require(['main'], function($){
-                var $ul = $('#product-feature-pager');
-                $ul.find('li a').on('click', function() {
-                    var $a = $(this);
-                    if ($a.text() == 1) {
-                        $('#product-feature-canvas').stop(true, true).animate({left:0});
-                    }
-                    else {
-                        $('#product-feature-canvas').stop(true, true).animate({left:-850});
-                    }
-                    $a.parents('li').addClass('active').siblings().removeClass('active');
-                    return false; 
-                });
-            });
-            </script>
-        </div>
-        <div class="tab-pane" id="product-advantage" style="padding:30px 40px 20px">
-            <p class="text-justify">宝贵的时间不应该被浪费在琐碎的事情上，LabScout&trade; LIMS就是您的实验室好管家。</p>
-            <ul style="list-style:none;padding:0">
-                <li><i class="fa fa-check fa-fw"></i> 订单和库存有详尽的明细列表并支持搜索查找，订购不重复。</li>
-                <li><i class="fa fa-check fa-fw"></i> 精确的对经费进行预算分配和收支管控，收支状况一目了然，避免经费过期或超出预算，审计不发愁。</li>
-                <li><i class="fa fa-check fa-fw"></i> 课题会议、学术活动等工作日程在线添加，邮件同步通知，安排不麻烦。</li>
-                <li><i class="fa fa-check fa-fw"></i> 通过预约授权使用仪器，预约时间不重叠，使用无冲突， 情况有记录，出现问题可追溯。</li>
+            <p class="text-justify">Laboratory Information Management System (here after refers to LabScout LIMS) is a
+powerful web-based laboratory software system, combining several key factors of the lab together and significantly increasing the efficiency and automation of laboratory management, turning your work place into a paper-free environment. LabScout LIMS is designed for middle size bio-scientific laboratory. There is nothing to download or install. The web interface is designed to be user-friendly, safe, compatible and simple. By adopting the Software as a Service mode, LabScout LIMS offers you the unique personalized management software, providing you the functional modules that perfectly match your needs. 
+</p>
+            <p class="text-justify">To make your lab function at peak efficiency, this software provides you:</p>
+            <ul>
+            	<li>Track your inventory</li>
+            	<li>Calendar schedule</li>
+            	<li>Researchers management</li>
+                <li>Expenditure account</li>
             </ul>
-            <p class="text-justify">总之，LIMS系统根据实验室的需要，为您安排工作流程，管理时间、经费和仪器，使您的实验室管理工作更加便捷高效，让您将更多的精力投入到科学探索中。</p>
         </div>
     </div>
 
