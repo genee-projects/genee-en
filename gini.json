@@ -9,7 +9,7 @@
     },
     "composer": {
         "require": {
-            "dflydev/markdown": "1.0.*@dev",
+            "michelf/php-markdown": "@stable",
             "ikimea/browser": "dev-master"
         }
     }

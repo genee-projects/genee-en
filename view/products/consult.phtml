@@ -12,9 +12,9 @@ $check_selected = function($a, $b) {
             <div class="form-group">
                 <label class="control-label">您想咨询的产品</label>
                 <select name="product" class="form-control">
+                    <option <?= $check_selected($form['product'], '17kong') ?> value="17kong">仪器控&trade; 公共仪器资源共享平台</option>
                     <option <?= $check_selected($form['product'], 'lims') ?> value="lims">LabScout&trade; LIMS 实验室信息管理系统</option>
-                    <option <?= $check_selected($form['product'], 'lims-cf') ?> value="lims-cf">LabScout&trade; LIMS-CF 公共仪器共享管理系统</option>
-                    <option <?= $check_selected($form['product'], 'labmai') ?> value="labmai">LabMai&trade; 科研物品电子商城系统</option>
+                    <option <?= $check_selected($form['product'], 'labmai') ?> value="labmai">来买&trade; 科研采购平台</option>
                 </select>
             </div>
         </div>
